@@ -1,16 +1,16 @@
-package org.emmansun.lcs.test;
+package org.emmansun.lcs;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.emmansun.lcs.FastLcs;
 import org.emmansun.lcs.LcsPair;
+import org.emmansun.lcs.NormalLcs;
 import org.junit.Test;
 
-public class FastLcsTest {
+public class NormalLcsTest {
 	@Test
 	public void test_Sample() {
 		List<Character> model = new ArrayList<Character>();
@@ -31,7 +31,7 @@ public class FastLcsTest {
 		sample.add('D');
 		sample.add('A');
 		sample.add('B');
-		FastLcs<Character> lcs = new FastLcs<Character>(model, sample);
+		NormalLcs<Character> lcs = new NormalLcs<Character>(model, sample);
 		Collection<LcsPair> result = lcs.findAllLcs();
 		assertEquals(8, result.size());
 	}
@@ -48,7 +48,7 @@ public class FastLcsTest {
 		sample.add('C');
 		sample.add('A');
 		sample.add('T');
-		FastLcs<Character> lcs = new FastLcs<Character>(model, sample);
+		NormalLcs<Character> lcs = new NormalLcs<Character>(model, sample);
 		Collection<LcsPair> result = lcs.findAllLcs();
 		System.out.println(result);
 		assertEquals(3, result.size());
@@ -68,7 +68,7 @@ public class FastLcsTest {
 		sample.add('B');
 		sample.add('A');
 		sample.add('B');
-		FastLcs<Character> lcs = new FastLcs<Character>(model, sample);
+		NormalLcs<Character> lcs = new NormalLcs<Character>(model, sample);
 		Collection<LcsPair> result = lcs.findAllLcs();
 		System.out.println(result);
 		assertEquals(5, result.size());
@@ -78,8 +78,9 @@ public class FastLcsTest {
 	public void test_complexCase() {
 		List<Character> model = TestUtils.createListFromString("ABCAAABBABBCCABCBACABABABCCBC");
 		List<Character> sample = TestUtils.createListFromString("ABCABABABCBACABCBACABABACBCB");
-		FastLcs<Character> lcs = new FastLcs<Character>(model, sample);
+		NormalLcs<Character> lcs = new NormalLcs<Character>(model, sample);
 		Collection<LcsPair> result = lcs.findAllLcs();
 		assertEquals(220, result.size());
 	}
+
 }

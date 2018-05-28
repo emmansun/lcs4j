@@ -1,4 +1,4 @@
-package org.emmansun.lcs.test;
+package org.emmansun.lcs;
 
 import java.util.ArrayList;
 import java.util.List;

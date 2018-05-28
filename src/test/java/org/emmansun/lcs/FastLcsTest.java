@@ -1,16 +1,16 @@
-package org.emmansun.lcs.test;
+package org.emmansun.lcs;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.emmansun.lcs.FastLcs;
 import org.emmansun.lcs.LcsPair;
-import org.emmansun.lcs.NormalLcs;
 import org.junit.Test;
 
-public class NormalLcsTest {
+public class FastLcsTest {
 	@Test
 	public void test_Sample() {
 		List<Character> model = new ArrayList<Character>();
@@ -31,7 +31,7 @@ public class NormalLcsTest {
 		sample.add('D');
 		sample.add('A');
 		sample.add('B');
-		NormalLcs<Character> lcs = new NormalLcs<Character>(model, sample);
+		FastLcs<Character> lcs = new FastLcs<Character>(model, sample);
 		Collection<LcsPair> result = lcs.findAllLcs();
 		assertEquals(8, result.size());
 	}
@@ -48,7 +48,7 @@ public class NormalLcsTest {
 		sample.add('C');
 		sample.add('A');
 		sample.add('T');
-		NormalLcs<Character> lcs = new NormalLcs<Character>(model, sample);
+		FastLcs<Character> lcs = new FastLcs<Character>(model, sample);
 		Collection<LcsPair> result = lcs.findAllLcs();
 		System.out.println(result);
 		assertEquals(3, result.size());
@@ -68,7 +68,7 @@ public class NormalLcsTest {
 		sample.add('B');
 		sample.add('A');
 		sample.add('B');
-		NormalLcs<Character> lcs = new NormalLcs<Character>(model, sample);
+		FastLcs<Character> lcs = new FastLcs<Character>(model, sample);
 		Collection<LcsPair> result = lcs.findAllLcs();
 		System.out.println(result);
 		assertEquals(5, result.size());
@@ -78,9 +78,8 @@ public class NormalLcsTest {
 	public void test_complexCase() {
 		List<Character> model = TestUtils.createListFromString("ABCAAABBABBCCABCBACABABABCCBC");
 		List<Character> sample = TestUtils.createListFromString("ABCABABABCBACABCBACABABACBCB");
-		NormalLcs<Character> lcs = new NormalLcs<Character>(model, sample);
+		FastLcs<Character> lcs = new FastLcs<Character>(model, sample);
 		Collection<LcsPair> result = lcs.findAllLcs();
 		assertEquals(220, result.size());
 	}
-
 }
